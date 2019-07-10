@@ -11,7 +11,7 @@ function reducer(state, action) {
 
     switch (action.type) {
 
-    case: 'FETCH_DATA':
+    case 'FETCH_DATA':
 
     return { ...state, episodes: action.payload };
 
@@ -22,6 +22,8 @@ function reducer(state, action) {
 }
 
 export function StoreProvider(props) {
+    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const value = { state, dispatch };
     return <Store.Provider value='data from store'>{props.children}
 
     </Store.Provider>
