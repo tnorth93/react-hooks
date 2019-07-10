@@ -26,7 +26,7 @@ export default function App() {
             return (
               <section key={episode.id}>
                 <img
-                  src={episode.image.medium}
+                  src={!!episode.image ? episode.image.medium : ''}
                   alt={`Rick and Morty ${episode.name}`}
                 />
                 <div>{episode.name}</div>
