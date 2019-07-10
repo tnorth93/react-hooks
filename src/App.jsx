@@ -11,6 +11,10 @@ export default function App() {
       payload: dataJSON._embedded.episodes
     });
   };
+  React.useEffect(() => {
+    state.episodes.length === 0 &&
+    fetchDataAction();
+  });
   return (
     <React.Fragment>
       {console.log(state)}
