@@ -1,6 +1,8 @@
 import React from 'react';
+import { Store } from './Store';
 
 export default function App() {
+  const store = React.useContext(Store);
   return (
     <React.Fragment>
       <div>

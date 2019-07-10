@@ -8,4 +8,8 @@ function reducer() {
 
 }
 
-export function StoreProvider(props) {}
+export function StoreProvider(props) {
+    return <Store.Provider value='data from store'>{props.children}
+
+    </Store.Provider>
+}
