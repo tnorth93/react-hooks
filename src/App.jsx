@@ -18,13 +18,14 @@ export default function App() {
   return (
     <React.Fragment>
       {console.log(state)}
-      <div>
+      <div className='header'>
         <h1>Rick and Morty</h1>
         <p>Pick your favourite episodes</p>
-        <section>
+      </div>
+        <section className='episode-layout'>
           {state.episodes.map(episode => {
             return (
-              <section key={episode.id}>
+              <section className='episode-box' key={episode.id}>
                 <img
                   src={!!episode.image ? episode.image.medium : ''}
                   alt={`Rick and Morty ${episode.name}`}
@@ -34,12 +35,14 @@ export default function App() {
                   <div>
                     Season: {episode.season} Number: {episode.number}
                   </div>
+                  <button type='button' onClick={ () => toggleFavAction(episode)}>
+                    favourite
+                  </button>
                 </section>
               </section>
             );
           })}
         </section>
-      </div>
     </React.Fragment>
   );
 }
