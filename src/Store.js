@@ -15,6 +15,14 @@ function reducer(state, action) {
 
     return { ...state, episodes: action.payload };
 
+    case 'ADD_FAV':
+        return {
+            ...
+    state,
+    
+    favorites: [...state.favorites, action.payload]
+        };
+
     default:
 
     return state;

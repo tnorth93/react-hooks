@@ -11,6 +11,15 @@ export default function App() {
       payload: dataJSON._embedded.episodes
     });
   };
+
+  const fetchDataAction = episode => {
+  dispatch({
+    type: 'ADD_FAV',
+    payload: episode
+  });
+}
+  
+
   React.useEffect(() => {
     state.episodes.length === 0 &&
     fetchDataAction();
