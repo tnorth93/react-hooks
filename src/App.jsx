@@ -27,10 +27,16 @@ export default function App() {
   return (
     <React.Fragment>
       {console.log(state)}
-      <div className='header'>
-        <h1>Rick and Morty</h1>
-        <p>Pick your favourite episodes</p>
-      </div>
+      <header className='header'>
+        <div>
+          <h1>Rick and Morty</h1>
+          <p>Pick your favourite episodes</p>
+        </div>
+        <div>
+          Favorites {state.favorites.length}
+        </div>
+      </header>
+    
         <section className='episode-layout'>
           {state.episodes.map(episode => {
             return (
