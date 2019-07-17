@@ -12,13 +12,18 @@ export default function App() {
     });
   };
 
-  const fetchDataAction = episode => {
-  dispatch({
-    type: 'ADD_FAV',
-    payload: episode
-  });
-}
+// const fetchDataAction = episode =>
+//   dispatch({
+//     type: 'ADD_FAV',
+//     payload: episode
+//   });
+
   
+const toggleFavAction = episode =>
+dispatch({
+  type: 'ADD_FAV',
+  payload: episode
+});
 
   React.useEffect(() => {
     state.episodes.length === 0 &&
