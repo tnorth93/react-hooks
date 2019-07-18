@@ -19,11 +19,21 @@ export default function App() {
 //   });
 
   
-const toggleFavAction = episode =>
-dispatch({
-  type: 'ADD_FAV',
-  payload: episode
-});
+const toggleFavAction = episode => {
+  const episodeInFavorites = state.favorites.includes(episode);
+  let dispatchObj = {
+    type: 'ADD_FAV',
+    payload: episode
+  };
+  if (episodeInFavorites) {
+    const favoritesWithoutEpisode = state.favorites.filter(fav => fav.id !== episode.id)
+    dispatchObj = {
+      type: 'REMOVE_FAV',
+      payload: favoritesWithoutEpisode
+    };
+  }
+  return dispatch(dispatchObj);
+}
 
   React.useEffect(() => {
     state.episodes.length === 0 &&
