@@ -66,7 +66,7 @@ const toggleFavAction = episode => {
                     Season: {episode.season} Number: {episode.number}
                   </div>
                   <button type='button' onClick={ () => toggleFavAction(episode)}>
-                    favourite
+                    {state.favorites.find(fav => fav.id === episode.id) ? 'Unfav' : 'Fav'}
                   </button>
                 </section>
               </section>
