@@ -19,11 +19,21 @@ export default function App() {
 //   });
 
   
-const toggleFavAction = episode =>
-dispatch({
-  type: 'ADD_FAV',
-  payload: episode
-});
+const toggleFavAction = episode => {
+  const episodeInFavorites = state.favorites.includes(episode);
+  let dispatchObj = {
+    type: 'ADD_FAV',
+    payload: episode
+  };
+  if (episodeInFavorites) {
+    const favoritesWithoutEpisode = state.favorites.filter(fav => fav.id !== episode.id)
+    dispatchObj = {
+      type: 'REMOVE_FAV',
+      payload: favoritesWithoutEpisode
+    };
+  }
+  return dispatch(dispatchObj);
+}
 
   React.useEffect(() => {
     state.episodes.length === 0 &&
@@ -56,7 +66,7 @@ dispatch({
                     Season: {episode.season} Number: {episode.number}
                   </div>
                   <button type='button' onClick={ () => toggleFavAction(episode)}>
-                    favourite
+                    {state.favorites.find(fav => fav.id === episode.id) ? 'Unfav' : 'Fav'}
                   </button>
                 </section>
               </section>
