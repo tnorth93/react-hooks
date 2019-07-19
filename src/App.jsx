@@ -61,7 +61,7 @@ const toggleFavAction = episode => {
                   alt={`Rick and Morty ${episode.name}`}
                 />
                 <div>{episode.name}</div>
-                <section>
+                <section ={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div>
                     Season: {episode.season} Number: {episode.number}
                   </div>
