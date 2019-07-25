@@ -60,7 +60,10 @@ const toggleFavAction = episode => {
             <p>Pick your favourite episodes</p>
           </div>
           <div>
-            Favorites {state.favorites.length}
+            <Link 
+          to='/'>Home</Link>{' '}
+            <Link 
+          to='/faves'>Favourite(s) {state.favourites.length}</Link>
           </div>
         </header>
       
