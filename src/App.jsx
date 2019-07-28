@@ -1,6 +1,7 @@
 import React from 'react';
 import { Store } from './Store';
 import { statements } from '@babel/template';
+import { Link } from '@reach/router';
 
 const EpisodesList = React.lazy(() => import('./EpisodesList'));
 
@@ -13,7 +14,7 @@ export default function App() {
       type: 'FETCH_DATA',
       payload: dataJSON._embedded.episodes
     });
-  };
+  };p
 
 // const fetchDataAction = episode =>
 //   dispatch({
