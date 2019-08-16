@@ -7,18 +7,18 @@ export default function HomePage() {
   const { state, dispatch } = React.useContext(Store);
 
   const toggleFavAction = episode => {
-    const episodeInFavourites = state.favourites.includes(episode);
+    const episodeInFavorites = state.favorites.includes(episode);
     let dispatchObj = {
       type: 'ADD_FAV',
       payload: episode
     };
-    if (episodeInFavourites) {
-      const favouritesWithoutEpisode = state.favourites.filter(
+    if (episodeInFavorites) {
+      const favoritesWithoutEpisode = state.favorites.filter(
         fav => fav.id !== episode.id
       );
       dispatchObj = {
         type: 'REMOVE_FAV',
-        payload: favouritesWithoutEpisode
+        payload: favoritesWithoutEpisode
       };
     }
     return dispatch(dispatchObj);
@@ -38,7 +38,7 @@ export default function HomePage() {
   const props = {
     episodes: state.episodes,
     toggleFavAction: toggleFavAction,
-    favourites: state.favourites
+    favorites: state.favorites
   };
 
   React.useEffect(() => {
